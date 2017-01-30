@@ -1,11 +1,17 @@
 package com.ttpool.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 @Data
-public class PlayerMetrics extends BaseDto {
+public class PlayerMetrics {
+
+    @Id
+    private String id;
     private final String playerId;
     private final Sport sport;
     private Integer currentRanking;
@@ -15,8 +21,13 @@ public class PlayerMetrics extends BaseDto {
     private Match biggestVictory;
     private Match biggestDefeat;
 
-    public PlayerMetrics(String playerId, Sport sport, Integer currentRanking, Integer highestRanking, Integer currentWinStreak,
-                         Integer highestWinStreak) {
+    @JsonCreator
+    public PlayerMetrics(@JsonProperty("playerId") String playerId,
+                         @JsonProperty("sport") Sport sport,
+                         @JsonProperty("currentRanking") Integer currentRanking,
+                         @JsonProperty("highestRanking") Integer highestRanking,
+                         @JsonProperty("currentWinStreak") Integer currentWinStreak,
+                         @JsonProperty("highestWinStreak") Integer highestWinStreak) {
         this.playerId = checkNotNull(playerId, "PlayerId cannot be null");
         this.sport = checkNotNull(sport, "Sport cannot be null");
         this.currentRanking = currentRanking;

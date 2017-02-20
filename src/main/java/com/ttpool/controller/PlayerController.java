@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
+import static com.ttpool.constants.UrlConstants.REST_INTERFACE_PREFIX;
 
 @RestController
-@RequestMapping(value = "/player")
+@RequestMapping(value = REST_INTERFACE_PREFIX + "/player")
 public class PlayerController {
 
     private PlayerService playerService;

@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.ttpool.constants.UrlConstants.REST_INTERFACE_PREFIX;
+
 @RestController
-@RequestMapping(value = "/match")
+@RequestMapping(value = REST_INTERFACE_PREFIX + "/match")
 public class MatchController {
     private MatchService matchService;
 
